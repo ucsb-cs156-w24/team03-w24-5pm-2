@@ -55,11 +55,11 @@ describe("ArticlesCreatePage tests", () => {
         const queryClient = new QueryClient();
         const article = {
             id: 1,
-            title: "Exploring the Depths of the Mariana Trench",
-            url: "www.deepseaexploration.com/mariana_trench",
-            explanation: "This article provides an in-depth look at the Mariana Trench, the deepest part of the world's oceans.",
-            email: "editor@deepseaexploration.com",
-            dateAdded: "2023-11-04T17:46"
+            title: "Hi",
+            url: "hello.com",
+            explanation: "hello everyone",
+            email: "hello@ucsb.edu",
+            dateAdded: "2022-01-02T12:00"
         };
 
         axiosMock.onPost("/api/articles/post").reply( 202, article );
@@ -83,11 +83,11 @@ describe("ArticlesCreatePage tests", () => {
         const dateAddedField = screen.getByTestId("ArticlesForm-dateAdded");
         const submitButton = screen.getByTestId("ArticlesForm-submit");
 
-        fireEvent.change(titleField, { target: { value: 'Exploring the Depths of the Mariana Trench' } });
-        fireEvent.change(urlField, { target: { value: 'www.deepseaexploration.com/mariana_trench' } });
-        fireEvent.change(explanationField, { target: { value: 'This article provides an in-depth look at the Mariana Trench, the deepest part of the world\'s oceans.' } });
-        fireEvent.change(emailField, { target: { value: 'editor@deepseaexploration.com' } });
-        fireEvent.change(dateAddedField, { target: { value: '2023-11-04T17:46' } });
+        fireEvent.change(titleField, { target: { value: 'Hi' } });
+        fireEvent.change(urlField, { target: { value: 'hello.com' } });
+        fireEvent.change(explanationField, { target: { value: 'hello everyone' } });
+        fireEvent.change(emailField, { target: { value: 'hello@ucsb.edu' } });
+        fireEvent.change(dateAddedField, { target: { value: '2022-01-02T12:00' } });
         fireEvent.click(submitButton);
 
         expect(submitButton).toBeInTheDocument();
@@ -98,14 +98,14 @@ describe("ArticlesCreatePage tests", () => {
 
         expect(axiosMock.history.post[0].params).toEqual(
             {
-            "title": "Exploring the Depths of the Mariana Trench",
-            "url": "www.deepseaexploration.com/mariana_trench",
-            "explanation": "This article provides an in-depth look at the Mariana Trench, the deepest part of the world's oceans.",
-            "email": "editor@deepseaexploration.com",
-            "dateAdded": "2023-11-04T17:46"
+            "title": "Hi",
+            "url": "hello.com",
+            "explanation": "hello everyone",
+            "email": "hello@ucsb.edu",
+            "dateAdded": "2022-01-02T12:00"
         });
 
-        expect(mockToast).toBeCalledWith("New article Created - id: 1 title: Exploring the Depths of the Mariana Trench");
+        expect(mockToast).toBeCalledWith("New article Created - id: 1 title: Hi");
         expect(mockNavigate).toBeCalledWith({ "to": "/articles" });
     });
 

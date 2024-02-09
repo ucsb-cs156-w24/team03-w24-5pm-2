@@ -13,7 +13,7 @@ jest.mock('react-router-dom', () => ({
     useNavigate: () => mockedNavigate
 }));
 
-describe("ArticlesTable tests", () => {
+describe("UserTable tests", () => {
   const queryClient = new QueryClient();
 
   test("Has the expected column headers and content for ordinary user", () => {
@@ -23,13 +23,13 @@ describe("ArticlesTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <ArticlesTable dates={articlesFixtures.threeArticles} currentUser={currentUser} />
+          <ArticlesTable articles={articlesFixtures.threeArticles} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
     );
 
-    const expectedHeaders = ["id", "Title", "Url", "Explanation", "Email", "Date Added"];
+    const expectedHeaders = ["id", "Title", "Url", "Explanation", "Email", "DateAdded"];
     const expectedFields = ["id", "title", "url", "explanation", "email", "dateAdded"];
     const testId = "ArticlesTable";
 
@@ -61,13 +61,13 @@ describe("ArticlesTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <ArticlesTable dates={articlesFixtures.threeArticles} currentUser={currentUser} />
+            <ArticlesTable articles={articlesFixtures.threeArticles} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
     );
 
-    const expectedHeaders = ["id", "Title", "Url", "Explanation", "Email", "Date Added"];
+    const expectedHeaders = ["id", "Title", "Url", "Explanation", "Email", "DateAdded"];
     const expectedFields = ["id", "title", "url", "explanation", "email", "dateAdded"];
     const testId = "ArticlesTable";
 
@@ -101,7 +101,7 @@ describe("ArticlesTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <ArticlesTable dates={articlesFixtures.threeArticles} currentUser={currentUser} />
+            <ArticlesTable articles={articlesFixtures.threeArticles} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
@@ -125,7 +125,7 @@ describe("ArticlesTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <ArticlesTable dates={articlesFixtures.threeArticles} currentUser={currentUser} />
+            <ArticlesTable articles={articlesFixtures.threeArticles} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 

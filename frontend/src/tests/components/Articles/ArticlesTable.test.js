@@ -114,7 +114,7 @@ describe("UserTable tests", () => {
     
     fireEvent.click(editButton);
 
-    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/articles/edit/0'));
+    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/articles/edit/1'));
 
   });
 
@@ -138,5 +138,6 @@ describe("UserTable tests", () => {
 
     fireEvent.click(deleteButton);
   });
+  
 
 });

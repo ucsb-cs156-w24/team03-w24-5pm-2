@@ -67,8 +67,8 @@ describe("ArticlesForm tests", () => {
         await screen.findByText(/Title is required./);
         expect(screen.getByText(/Url is required./)).toBeInTheDocument();
         expect(screen.getByText(/Explanation is required./)).toBeInTheDocument();
-        expect(screen.getByText(/Email is required./)).toBeInTheDocument();
-        expect(screen.getByText(/DateAdded is required./)).toBeInTheDocument();
+        expect(screen.getByText(/Email is required./)).toBeInTheDocument();;
+        expect(screen.getByText(/DateAdded is required./ && /DateAdded must be in ISO format/)).toBeInTheDocument();
 
     });
 

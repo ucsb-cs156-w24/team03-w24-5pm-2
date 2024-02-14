@@ -41,18 +41,22 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
             )}
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="itemId">Name</Form.Label>
+                <Form.Label htmlFor="itemId">Item Id</Form.Label>
                 <Form.Control
                     data-testid={testIdPrefix + "-itemId"}
                     id="itemId"
                     type="number"
-                    isInvalid={Boolean(errors.name)}
+                    isInvalid={Boolean(errors.itemId)}
                     {...register("itemId", {
                         required: "ItemId is required.",
+                        min: {
+                            value: 0,
+                            message: "Min 0"
+                        }
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
-                    {errors.name?.message}
+                    {errors.itemId?.message}
                 </Form.Control.Feedback>
             </Form.Group>
 
@@ -62,13 +66,13 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                     data-testid={testIdPrefix + "-reviewerEmail"}
                     id="reviewerEmail"
                     type="text"
-                    isInvalid={Boolean(errors.name)}
+                    isInvalid={Boolean(errors.reviewerEmail)}
                     {...register("reviewerEmail", {
                         required: "ReviewerEmail is required.",
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
-                    {errors.name?.message}
+                    {errors.reviewerEmail?.message}
                 </Form.Control.Feedback>
             </Form.Group>
 
@@ -78,15 +82,21 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                     data-testid={testIdPrefix + "-stars"}
                     id="stars"
                     type="number"
-                    isInvalid={Boolean(errors.name)}
+                    isInvalid={Boolean(errors.stars)}
                     {...register("stars", {
                         required: "Stars is required. Must be an integer in the range [1, 5].",
-                        max: 5, 
-                        min: 1
+                        max: {
+                            value: 5,
+                            message: "Max 5"
+                        },
+                        min: {
+                            value: 1,
+                            message: "Min 1"
+                        }
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
-                    {errors.name?.message}
+                    {errors.stars?.message}
                 </Form.Control.Feedback>
             </Form.Group>
 
@@ -96,18 +106,18 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                     data-testid={testIdPrefix + "-comments"}
                     id="comments"
                     type="text"
-                    isInvalid={Boolean(errors.name)}
+                    isInvalid={Boolean(errors.comments)}
                     {...register("comments", {
                         required: "Comments is required.",
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
-                    {errors.name?.message}
+                    {errors.comments?.message}
                 </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="dateReviewed">Date Reviewed(iso format)</Form.Label>
+                <Form.Label htmlFor="dateReviewed">Date Reviewed (iso format)</Form.Label>
                 <Form.Control
                     data-testid={testIdPrefix + "-dateReviewed"}
                     id="dateReviewed"

@@ -58,12 +58,12 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             type="text"
                             isInvalid={Boolean(errors.requesterEmail)}
                             {...register("requesterEmail", {
-                                required: true,
+                                required: "Requester email is required.Requester email must be a valid email.",
                                 pattern: requesterEmail_regex
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.requesterEmail && 'Requester email is required.Requester email must be a valid email.'}
+                            {errors.requesterEmail?.message}
                             {errors.requesterEmail?.type === 'pattern' && 'Requester email must be a valid email.'} 
                         </Form.Control.Feedback>
                     </Form.Group>
@@ -77,12 +77,12 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                             type="text"
                             isInvalid={Boolean(errors.teamId)}
                             {...register("teamId", {
-                                required: true,
+                                required: "Team ID is required.Team ID must be a valid team id.",
                                 pattern: teamId_regex
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.teamId && 'Team ID is required.Team ID must be a valid team id.'}
+                            {errors.teamId?.message}
                             {errors.teamId?.type === 'pattern' && 'Team ID must be a valid team id.'} 
                         </Form.Control.Feedback>
                     </Form.Group>

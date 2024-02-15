@@ -35,7 +35,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
 
                 {initialContents && (
                     <Col>
-                        <Form.Group className="mb-3" >
+                        <Form.Group className="mb-3">
                             <Form.Label htmlFor="id">Id</Form.Label>
                             <Form.Control
                                 data-testid="HelpRequestForm-id"

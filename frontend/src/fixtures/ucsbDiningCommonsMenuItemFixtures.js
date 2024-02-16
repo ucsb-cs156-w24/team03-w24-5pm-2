@@ -5,7 +5,7 @@ const ucsbDiningCommonsMenuItemFixtures = {
         "name": "Sliced Ham",
         "station": "Deli"
     },
-    threeDates: [
+    threeItems: [
         {
             "id": 1,
             "diningCommonsCode": "carrillo",

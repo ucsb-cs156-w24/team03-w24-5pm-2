@@ -1,11 +1,12 @@
 import React from 'react';
-import UCSBDiningCommonsMenuItemForm from "main/components/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemForm";
+import UCSBDiningCommonsMenuItemForm from "main/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemForm"
 import { ucsbDiningCommonsMenuItemFixtures } from 'fixtures/ucsbDiningCommonsMenuItemFixtures';
 
 export default {
-    title: 'components/UCSBDiningCommonsMenuItems/UCSBDiningCommonsMenuItemForm',
+    title: 'components/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemForm',
     component: UCSBDiningCommonsMenuItemForm
 };
+
 
 const Template = (args) => {
     return (
@@ -13,31 +14,23 @@ const Template = (args) => {
     )
 };
 
-export const Empty = Template.bind({});
+export const Create = Template.bind({});
 
-Empty.args = {
-    items: []
+Create.args = {
+    buttonLabel: "Create",
+    submitAction: (data) => {
+        console.log("Submit was clicked with data: ", data); 
+        window.alert("Submit was clicked with data: " + JSON.stringify(data));
+   }
 };
 
-export const ThreeItemsOrdinaryUser = Template.bind({});
+export const Update = Template.bind({});
 
-ThreeItemsOrdinaryUser.args = {
-    items: ucsbDiningCommonsMenuItemFixtures.threeItems,
-    currentUser: currentUserFixtures.userOnly,
+Update.args = {
+    initialContents: ucsbDiningCommonsMenuItemFixtures.oneItem,
+    buttonLabel: "Update",
+    submitAction: (data) => {
+        console.log("Submit was clicked with data: ", data); 
+        window.alert("Submit was clicked with data: " + JSON.stringify(data));
+   }
 };
-
-export const ThreeItemsAdminUser = Template.bind({});
-ThreeItemsAdminUser.args = {
-    items: ucsbDiningCommonsMenuItemFixtures.threeItems,
-    currentUser: currentUserFixtures.adminUser,
-}
-
-ThreeItemsAdminUser.parameters = {
-    msw: [
-        rest.delete('/api/UCSBDiningCommonsMenuItem', (req, res, ctx) => {
-            window.alert("DELETE: " + JSON.stringify(req.url));
-            return res(ctx.status(200),ctx.json({}));
-        }),
-    ]
-};
-

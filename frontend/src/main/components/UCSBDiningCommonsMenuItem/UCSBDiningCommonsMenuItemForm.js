@@ -41,7 +41,7 @@ function UCSBDiningCommonsMenuItemForm({ initialContents, submitAction, buttonLa
 
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="diningCommonsCode">DiningCommonsCode</Form.Label>
+                        <Form.Label htmlFor="diningCommonsCode">Dining Commons Code</Form.Label>
                         <Form.Control
                             data-testid="UCSBDiningCommonsMenuItemForm-diningCommonsCode"
                             id="diningCommonsCode"
@@ -50,7 +50,7 @@ function UCSBDiningCommonsMenuItemForm({ initialContents, submitAction, buttonLa
                             {...register("diningCommonsCode", { required: true })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.diningCommonsCode && 'DiningCommonsCode is required.'}
+                            {errors.diningCommonsCode && 'Dining Commons Code is required.'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>

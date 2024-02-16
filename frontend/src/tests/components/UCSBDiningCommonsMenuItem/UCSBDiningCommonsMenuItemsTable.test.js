@@ -29,7 +29,7 @@ describe("UserTable tests", () => {
 
     );
 
-    const expectedHeaders = ["id", "DiningCommonsCode", "Name", "Station"];
+    const expectedHeaders = ["id", "Dining Commons Code", "Name", "Station"];
     const expectedFields = ["id", "diningCommonsCode", "name", "station"];
     const testId = "UCSBDiningCommonsMenuItemsTable";
 
@@ -67,7 +67,7 @@ describe("UserTable tests", () => {
 
     );
 
-    const expectedHeaders = ["id", "DiningCommonsCode", "Name", "Station"];
+    const expectedHeaders = ["id", "Dining Commons Code", "Name", "Station"];
     const expectedFields = ["id", "diningCommonsCode", "name", "station"];
     const testId = "UCSBDiningCommonsMenuItemsTable";
 

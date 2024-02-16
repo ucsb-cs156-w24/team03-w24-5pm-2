@@ -33,7 +33,7 @@ export default function UCSBDiningCommonsMenuItemsTable({ items, currentUser }) 
             accessor: 'id', // accessor is the "key" in the data
         },
         {
-            Header: 'DiningCommonsCode',
+            Header: 'Dining Commons Code',
             accessor: 'diningCommonsCode',
         },
         {

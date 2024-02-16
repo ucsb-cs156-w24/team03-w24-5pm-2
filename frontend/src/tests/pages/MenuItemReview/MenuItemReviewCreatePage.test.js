@@ -60,7 +60,7 @@ describe("MenuItemReviewCreatePage tests", () => {
             reviewerEmail: "aqiu@ucsb.edu",
             stars: 1,
             comments: "yum",
-            dateReviewed: "11-11-1111T11:11",
+            dateReviewed: "1111-11-11T11:11",
         };
 
         axiosMock.onPost("/api/menuitemreviews/post").reply(202, menuItemReview);

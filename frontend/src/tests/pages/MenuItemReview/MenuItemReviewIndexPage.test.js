@@ -124,6 +124,40 @@ describe("MenuItemReviewIndexPage tests", () => {
         restoreConsole();
 
     });
+
+    test("what happens when you click delete, admin", async () => {
+        // arrange
+        setupAdminUser();
+        axiosMock.onGet("/api/menuitemreviews/all").reply(200, menuItemReviewFixtures.threeMenuItemReviews);
+        axiosMock.onDelete("/api/menuitemreviews").reply(200, "MenuItemReview with id 1 was deleted");
+
+        // act
+        render(
+            <QueryClientProvider client={queryClient}>
+                <MemoryRouter>
+                    <MenuItemReviewIndexPage />
+                </MemoryRouter>
+            </QueryClientProvider>
+        );
+
+        // assert
+        await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toBeInTheDocument(); });
+
+        expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
+
+        const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
+        expect(deleteButton).toBeInTheDocument();
+
+        // // act
+        fireEvent.click(deleteButton);
+
+        // assert
+        await waitFor(() => { expect(mockToast).toBeCalledWith("MenuItemReview with id 1 was deleted") });
+        await waitFor(() => { expect(axiosMock.history.delete.length).toBe(1); });
+        expect(axiosMock.history.delete[0].url).toBe("/api/menuitemreviews");
+        expect(axiosMock.history.delete[0].url).toBe("/api/menuitemreviews");
+        expect(axiosMock.history.delete[0].params).toEqual({ id: 2 });
+    });
 });
 
 

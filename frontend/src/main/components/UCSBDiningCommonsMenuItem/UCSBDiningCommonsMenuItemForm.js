@@ -1,4 +1,3 @@
-import { ucsbDiningCommonsMenuItemFixtures } from 'fixtures/ucsbDiningCommonsMenuItemFixtures';
 import { Button, Form, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
@@ -42,16 +41,16 @@ function UCSBDiningCommonsMenuItemForm({ initialContents, submitAction, buttonLa
 
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="diningCommonsCode">Dining Commons Code</Form.Label>
+                        <Form.Label htmlFor="diningCommonsCode">DiningCommonsCode</Form.Label>
                         <Form.Control
                             data-testid="UCSBDiningCommonsMenuItemForm-diningCommonsCode"
                             id="diningCommonsCode"
                             type="text"
                             isInvalid={Boolean(errors.diningCommonsCode)}
-                            {...register("diningCommonsCode", { required: true, pattern: yyyyq_regex })}
+                            {...register("diningCommonsCode", { required: true })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.diningCommonsCode && 'Dining commons code is required.'}
+                            {errors.diningCommonsCode && 'DiningCommonsCode is required.'}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -63,7 +62,7 @@ function UCSBDiningCommonsMenuItemForm({ initialContents, submitAction, buttonLa
                             id="name"
                             type="text"
                             isInvalid={Boolean(errors.name)}
-                            {...register("name", { required: true, pattern: isodate_regex })}
+                            {...register("name", { required: true })}
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.name && 'Name is required.'}

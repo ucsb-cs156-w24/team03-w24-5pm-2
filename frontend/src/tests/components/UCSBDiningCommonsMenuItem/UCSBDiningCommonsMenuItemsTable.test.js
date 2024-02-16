@@ -4,7 +4,6 @@ import UCSBDiningCommonsMenuItemsTable from "main/components/UCSBDiningCommonsMe
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
-import { ucsbDiningCommonsMenuItemFixtures } from "fixtures/ucsbDiningCommonsMenuItemFixtures";
 
 
 const mockedNavigate = jest.fn();
@@ -30,7 +29,7 @@ describe("UserTable tests", () => {
 
     );
 
-    const expectedHeaders = ["id", "Dining Commons Code", "Name", "Station"];
+    const expectedHeaders = ["id", "DiningCommonsCode", "Name", "Station"];
     const expectedFields = ["id", "diningCommonsCode", "name", "station"];
     const testId = "UCSBDiningCommonsMenuItemsTable";
 
@@ -62,13 +61,13 @@ describe("UserTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <UCSBDatesTable dates={ucsbDatesFixtures.threeDates} currentUser={currentUser} />
+          <UCSBDiningCommonsMenuItemsTable items={ucsbDiningCommonsMenuItemFixtures.threeItems} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
     );
 
-    const expectedHeaders = ["id", "Dining Commons Code", "Name", "Station"];
+    const expectedHeaders = ["id", "DiningCommonsCode", "Name", "Station"];
     const expectedFields = ["id", "diningCommonsCode", "name", "station"];
     const testId = "UCSBDiningCommonsMenuItemsTable";
 
@@ -115,7 +114,7 @@ describe("UserTable tests", () => {
     
     fireEvent.click(editButton);
 
-    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/ucsbdiningcommonsmenuitems/edit/1'));
+    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/UCSBDiningCommonsMenuItem/edit/1'));
 
   });
 

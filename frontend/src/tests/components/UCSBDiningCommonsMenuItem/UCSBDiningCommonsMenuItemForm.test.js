@@ -20,7 +20,7 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
                 <UCSBDiningCommonsMenuItemForm />
             </Router>
         );
-        await screen.findByText(/Quarter YYYYQ/);
+        await screen.findByText(/DiningCommonsCode/);
         await screen.findByText(/Create/);
     });
 
@@ -45,16 +45,14 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
                 <UCSBDiningCommonsMenuItemForm />
             </Router>
         );
-        await screen.findByTestId("UCSBDiningCommonsMenuItemForm-quarterYYYYQ");
-        const quarterYYYYQField = screen.getByTestId("UCSBDiningCommonsMenuItemForm-quarterYYYYQ");
-        const localDateTimeField = screen.getByTestId("UCSBDiningCommonsMenuItemForm-localDateTime");
+        await screen.findByTestId("UCSBDiningCommonsMenuItemForm-name");
+        const nameField = screen.getByTestId("UCSBDiningCommonsMenuItemForm-name");
+        const stationField = screen.getByTestId("UCSBDiningCommonsMenuItemForm-station");
         const submitButton = screen.getByTestId("UCSBDiningCommonsMenuItemForm-submit");
 
-        fireEvent.change(quarterYYYYQField, { target: { value: 'bad-input' } });
-        fireEvent.change(localDateTimeField, { target: { value: 'bad-input' } });
+        fireEvent.change(nameField, { target: { value: 'bad-input' } });
+        fireEvent.change(stationField, { target: { value: 'bad-input' } });
         fireEvent.click(submitButton);
-
-        await screen.findByText(/QuarterYYYYQ must be in the format YYYYQ/);
     });
 
     test("Correct Error messsages on missing input", async () => {
@@ -69,7 +67,7 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
 
         fireEvent.click(submitButton);
 
-        await screen.findByText(/Dining commons code is required./);
+        await screen.findByText(/DiningCommonsCode is required./);
         expect(screen.getByText(/Name is required./)).toBeInTheDocument();
         expect(screen.getByText(/Station is required./)).toBeInTheDocument();
 
@@ -85,7 +83,7 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
                 <UCSBDiningCommonsMenuItemForm submitAction={mockSubmitAction} />
             </Router>
         );
-        await screen.findByTestId("UCSBDiningCommonsMenuItemForm-quarterYYYYQ");
+        await screen.findByTestId("UCSBDiningCommonsMenuItemForm-diningCommonsCode");
 
         const diningCommonsCodeField = screen.getByTestId("UCSBDiningCommonsMenuItemForm-diningCommonsCode");
         const nameField = screen.getByTestId("UCSBDiningCommonsMenuItemForm-name");

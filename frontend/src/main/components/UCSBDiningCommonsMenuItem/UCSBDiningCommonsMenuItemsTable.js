@@ -6,12 +6,12 @@ import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/UCSBDiningC
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function UCSBDiningCommonsMenuItemsTable({ dates, currentUser }) {
+export default function UCSBDiningCommonsMenuItemsTable({ items, currentUser }) {
 
     const navigate = useNavigate();
 
     const editCallback = (cell) => {
-        navigate(`/ucsbdiningcommonsmenuitem/edit/${cell.row.values.id}`)
+        navigate(`/UCSBDiningCommonsMenuItem/edit/${cell.row.values.id}`)
     }
 
     // Stryker disable all : hard to test for query caching
@@ -19,7 +19,7 @@ export default function UCSBDiningCommonsMenuItemsTable({ dates, currentUser }) 
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        ["/api/ucsbdiningcommonsmenuitem/all"]
+        ["/api/UCSBDiningCommonsMenuItem/all"]
     );
     // Stryker restore all 
 
@@ -33,7 +33,7 @@ export default function UCSBDiningCommonsMenuItemsTable({ dates, currentUser }) 
             accessor: 'id', // accessor is the "key" in the data
         },
         {
-            Header: 'Dining Commons Code',
+            Header: 'DiningCommonsCode',
             accessor: 'diningCommonsCode',
         },
         {
@@ -52,7 +52,7 @@ export default function UCSBDiningCommonsMenuItemsTable({ dates, currentUser }) 
     } 
 
     return <OurTable
-        data={dates}
+        data={items}
         columns={columns}
         testid={"UCSBDiningCommonsMenuItemsTable"}
     />;

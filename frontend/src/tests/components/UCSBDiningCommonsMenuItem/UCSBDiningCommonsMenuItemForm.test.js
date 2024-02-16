@@ -20,7 +20,7 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
                 <UCSBDiningCommonsMenuItemForm />
             </Router>
         );
-        await screen.findByText(/DiningCommonsCode/);
+        await screen.findByText(/Dining Commons Code/);
         await screen.findByText(/Create/);
     });
 
@@ -67,7 +67,7 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
 
         fireEvent.click(submitButton);
 
-        await screen.findByText(/DiningCommonsCode is required./);
+        await screen.findByText(/Dining Commons Code is required./);
         expect(screen.getByText(/Name is required./)).toBeInTheDocument();
         expect(screen.getByText(/Station is required./)).toBeInTheDocument();
 

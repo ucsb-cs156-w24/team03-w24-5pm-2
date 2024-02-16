@@ -16,7 +16,7 @@ const organizationFixtures = {
             "id": 2,
              "orgCode": "SKY",
              "orgTranslationShort": "SKYDIVING CLUB",
-             "orgTranslation": "SKYDIVING CLUB AT UCSB"",
+             "orgTranslation": "SKYDIVING CLUB AT UCSB",
              "inactive": false      
         },
 

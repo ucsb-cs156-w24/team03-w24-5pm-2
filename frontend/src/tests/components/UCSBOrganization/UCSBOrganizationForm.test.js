@@ -1,6 +1,6 @@
 import { render, waitFor, fireEvent, screen } from "@testing-library/react";
 import UCSBOrganizationForm from "main/components/UCSBOrganization/UCSBOrganizationForm";
-import { ucsbDatesFixtures } from "fixtures/ucsbOrganizationFixtures";
+import { ucsbOrganizationFixtures } from "fixtures/ucsbOrganizationFixtures";
 import { BrowserRouter as Router } from "react-router-dom";
 
 const mockedNavigate = jest.fn();
@@ -28,12 +28,12 @@ describe("UCSBOrganizationForm tests", () => {
 
         render(
             <Router  >
-                <UCSBOrganizationForm initialContents={ucsbOrganizationFixtures.oneOrganization} />
+                <UCSBOrganizationForm initialContents={ucsbOrganizationFixtures.oneOrganization[0]} />
             </Router>
         );
         await screen.findByTestId(/UCSBOrganizationForm-orgCode/);
         expect(screen.getByText(/orgCode/)).toBeInTheDocument();
-        expect(screen.getByTestId(/UCSBOrganizationForm-orgCode/)).toHaveValue("ZPR");
+        expect(screen.getByTestId(/UCSBOrganizationForm-orgCode/)).toHaveValue('ZPR');
     });
 
 
@@ -45,6 +45,7 @@ describe("UCSBOrganizationForm tests", () => {
             </Router>
         );
         await screen.findByTestId("UCSBOrganizationForm-orgCode");
+	const orgCodeField = screen.getByTestId("UCSBOrganizationForm-orgCode");
         const orgTranslationShortField = screen.getByTestId("UCSBOrganizationForm-orgTranslationShort");
         const orgTranslationField = screen.getByTestId("UCSBOrganizationForm-orgTranslation");
         const submitButton = screen.getByTestId("UCSBOrganizationForm-submit");
@@ -92,7 +93,7 @@ describe("UCSBOrganizationForm tests", () => {
         const submitButton = screen.getByTestId("UCSBOrganizationForm-submit");
         fireEvent.click(submitButton);
     
-        const errorMessage = await screen.findByText("inactive must be true or false");
+        const errorMessage = await screen.findByText("Input needs to be just true or false");
         expect(errorMessage).toBeInTheDocument();
     });
 
@@ -105,7 +106,7 @@ describe("UCSBOrganizationForm tests", () => {
 
         render(
             <Router  >
-                <UCSBDateForm submitAction={mockSubmitAction} />
+                <UCSBOrganizationForm submitAction={mockSubmitAction} />
             </Router>
         );
         await screen.findByTestId("UCSBOrganizationForm-orgCode");
@@ -114,11 +115,11 @@ describe("UCSBOrganizationForm tests", () => {
         const orgTranslationShortField = screen.getByTestId("UCSBOrganizationForm-orgTranslationShort");
         const orgTranslationField = screen.getByTestId("UCSBOrganizationForm-orgTranslation");
 	const inactiveField = screen.getByTestId("UCSBOrganizationForm-inactive");
-        const submitButton = screen.getByTestId("UCSBOrganzationForm-submit");
+        const submitButton = screen.getByTestId("UCSBOrganizationForm-submit");
 
         fireEvent.change(orgCodeField, { target: { value: 'ZPR' } });
-        fireEvent.change(nameField, { target: { value: 'Zeta Phi Rho' } });
-        fireEvent.change(localDateTimeField, { target: { value: 'Zeta Phi Rho at UCSB' } });
+        fireEvent.change(orgTranslationShortField, { target: { value: 'Zeta Phi Rho' } });
+        fireEvent.change(orgTranslationField, { target: { value: 'Zeta Phi Rho at UCSB' } });
 	fireEvent.change(inactiveField, { target: { value: false } });
         fireEvent.click(submitButton);
 

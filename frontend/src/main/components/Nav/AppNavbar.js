@@ -56,10 +56,16 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                 <>
                   <Nav.Link as={Link} to="/restaurants">Restaurants</Nav.Link>
                   <Nav.Link as={Link} to="/ucsbdates">UCSB Dates</Nav.Link>
-                  <Nav.Link as={Link} to="/diningcommonsmenuitem">UCSBDiningCommonsMenuItem</Nav.Link>
                   <Nav.Link as={Link} to="/placeholder">Placeholder</Nav.Link>
                 </>
               )
+            }
+            {
+                hasRole(currentUser, "ROLE_USER") && (
+                  <>
+                    <Nav.Link as={Link} to="/diningcommonsmenuitem">UCSBDiningCommonsMenuItem</Nav.Link>
+                  </>
+                )
             }
             <Nav className="ml-auto">
               {

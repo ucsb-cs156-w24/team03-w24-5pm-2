@@ -92,18 +92,18 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
                 assertEquals(expectedJson, responseString);
         }
 
-        // Tests for POST /api/ucsbdiningcommonsmenuitem/post...
+        // Tests for POST /api/UCSBDiningCommonsMenuItem/post...
 
         @Test
         public void logged_out_users_cannot_post() throws Exception {
-                mockMvc.perform(post("/api/ucsbdiningcommonsmenuitem/post"))
+                mockMvc.perform(post("/api/UCSBDiningCommonsMenuItem/post"))
                                 .andExpect(status().is(403));
         }
 
         @WithMockUser(roles = { "USER" })
         @Test
         public void logged_in_regular_users_cannot_post() throws Exception {
-                mockMvc.perform(post("/api/ucsbdiningcommonsmenuitem/post"))
+                mockMvc.perform(post("/api/UCSBDiningCommonsMenuItem/post"))
                                 .andExpect(status().is(403)); // only admins can post
         }
 

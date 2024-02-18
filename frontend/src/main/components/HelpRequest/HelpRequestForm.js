@@ -151,6 +151,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
                                 data-testid="HelpRequestForm-solved" 
                                 id="solved"
                                 type="switch"
+                                {...register("solved")}
                             />
                         </Form.Group>
                 </Col>

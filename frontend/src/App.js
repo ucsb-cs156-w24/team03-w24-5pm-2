@@ -15,6 +15,10 @@ import PlaceholderIndexPage from "main/pages/Placeholder/PlaceholderIndexPage";
 import PlaceholderCreatePage from "main/pages/Placeholder/PlaceholderCreatePage";
 import PlaceholderEditPage from "main/pages/Placeholder/PlaceholderEditPage";
 
+import HelpRequestIndexPage from "main/pages/HelpRequest/HelpRequestIndexPage";
+import HelpRequestCreatePage from "main/pages/HelpRequest/HelpRequestCreatePage";
+import HelpRequestEditPage from "main/pages/HelpRequest/HelpRequestEditPage";
+
 
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
@@ -76,6 +80,22 @@ function App() {
             </>
           )
         }
+         {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/helprequest" element={<HelpRequestIndexPage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_ADMIN") && (
+            <>
+              <Route exact path="/helprequest/edit/:id" element={<HelpRequestEditPage />} />
+              <Route exact path="/helprequest/create" element={<HelpRequestCreatePage />} />
+            </>
+          )
+        }
+        
       </Routes>
     </BrowserRouter>
   );

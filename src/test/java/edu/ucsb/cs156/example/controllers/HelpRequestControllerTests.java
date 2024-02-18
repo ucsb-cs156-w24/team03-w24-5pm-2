@@ -344,5 +344,5 @@ public class HelpRequestControllerTests extends ControllerTestCase {
                 assertEquals("HelpRequest with id 123 not found", json.get("message"));
 
         }
-
 }
+

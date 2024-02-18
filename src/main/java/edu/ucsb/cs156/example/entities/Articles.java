@@ -12,21 +12,21 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
+
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity(name = "helprequest")
-public class HelpRequest {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String requesterEmail;
-    private String teamId;
-    private String tableOrBreakoutRoom;
-    private LocalDateTime requestTime;
-    private String explanation;
-    private boolean solved;
+@Entity(name = "articles")
+public class Articles {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private long id;
 
+  private String title;
+  private String url;
+  private String explanation;
+  private String email;
+  private LocalDateTime dateAdded;
 }
-

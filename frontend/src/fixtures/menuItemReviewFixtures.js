@@ -6,7 +6,7 @@ const menuItemReviewFixtures = {
         "itemId": 11,
         "reviewerEmail": "aqiu@ucsb.edu",   
         "stars": 1,
-        "dateReviewed": "1111-11-11T11:11:11",
+        "dateReviewed": "2020-01-02T12:00",
         "comments": "they have the audacity to call this food??"
       }
     ],
@@ -18,7 +18,7 @@ const menuItemReviewFixtures = {
             "itemId": 11,
             "reviewerEmail": "aqiu@umail.ucsb.edu",   
             "stars": 5,
-            "dateReviewed": "1111-11-11T11:11:12",
+            "dateReviewed": "1111-11-11T11:11",
             "comments": "Best and least dry roast beef ever! Yum!"
         },
 
@@ -27,7 +27,7 @@ const menuItemReviewFixtures = {
             "itemId": 22,
             "reviewerEmail": "aqiu@ucsb.edu",   
             "stars": 5,
-            "dateReviewed": "1111-11-11T11:11:13",
+            "dateReviewed": "1111-11-11T11:11",
             "comments": "I love the tri-tip roast!"
         },
 
@@ -36,7 +36,7 @@ const menuItemReviewFixtures = {
             "itemId": 22,
             "reviewerEmail": "aqiu@umail.ucsb.edu",   
             "stars": 4,
-            "dateReviewed": "1111-11-11T11:11:14",
+            "dateReviewed": "1111-11-11T11:11",
             "comments": "Not as good as the roast beef."
         },
         

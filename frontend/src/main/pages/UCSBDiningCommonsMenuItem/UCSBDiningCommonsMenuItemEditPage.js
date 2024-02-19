@@ -53,7 +53,7 @@ export default function UCSBDiningCommonsMenutItemEditPage({storybook=false}) {
   }
 
   if (isSuccess && !storybook) {
-    return <Navigate to="/UCSBDiningCommonsMenuItem" />
+    return <Navigate to="/diningcommonsmenuitem" />
   }
 
   return (

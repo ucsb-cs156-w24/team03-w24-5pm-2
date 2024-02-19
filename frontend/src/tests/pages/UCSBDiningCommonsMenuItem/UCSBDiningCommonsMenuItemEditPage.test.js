@@ -125,7 +125,7 @@ describe("UCSBDiningCommonsMenuItemEditPage tests", () => {
             await waitFor(() => expect(mockToast).toBeCalled());
             expect(mockToast).toBeCalledWith("UCSBDiningCommonsMenuItem Updated - id: 17 name: Sliced Ham");
             
-            expect(mockNavigate).toBeCalledWith({ "to": "/UCSBDiningCommonsMenuItem" });
+            expect(mockNavigate).toBeCalledWith({ "to": "/diningcommonsmenuitem" });
 
             expect(axiosMock.history.put.length).toBe(1); // times called
             expect(axiosMock.history.put[0].params).toEqual({ id: 17 });
@@ -170,7 +170,7 @@ describe("UCSBDiningCommonsMenuItemEditPage tests", () => {
 
             await waitFor(() => expect(mockToast).toBeCalled());
             expect(mockToast).toBeCalledWith("UCSBDiningCommonsMenuItem Updated - id: 17 name: Sliced Ham");
-            expect(mockNavigate).toBeCalledWith({ "to": "/UCSBDiningCommonsMenuItem" });
+            expect(mockNavigate).toBeCalledWith({ "to": "/diningcommonsmenuitem" });
         });
 
        

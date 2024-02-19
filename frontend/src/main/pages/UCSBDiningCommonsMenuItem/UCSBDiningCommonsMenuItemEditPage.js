@@ -1,6 +1,6 @@
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 import { useParams } from "react-router-dom";
-import UCSBDiningCommonsMenutItemForm from "main/components/UCSBDiningCommonsMenutItem/UCSBDiningCommonsMenutItemForm";
+import UCSBDiningCommonsMenuItemForm from "main/components/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemForm";
 import { Navigate } from 'react-router-dom'
 import { useBackend, useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
@@ -11,10 +11,10 @@ export default function UCSBDiningCommonsMenutItemEditPage({storybook=false}) {
   const { data: ucsbDiningCommonsMenuItem, _error, _status } =
     useBackend(
       // Stryker disable next-line all : don't test internal caching of React Query
-      [`/api/UCSBDiningCommonsMenutItem?id=${id}`],
+      [`/api/UCSBDiningCommonsMenuItem?id=${id}`],
       {  // Stryker disable next-line all : GET is the default, so changing this to "" doesn't introduce a bug
         method: "GET",
-        url: `/api/UCSBDiningCommonsMenutItem`,
+        url: `/api/UCSBDiningCommonsMenuItem`,
         params: {
           id
         }
@@ -23,7 +23,7 @@ export default function UCSBDiningCommonsMenutItemEditPage({storybook=false}) {
 
 
   const objectToAxiosPutParams = (ucsbDiningCommonsMenuItem) => ({
-    url: "/api/UCSBDiningCommonsMenutItem",
+    url: "/api/UCSBDiningCommonsMenuItem",
     method: "PUT",
     params: {
       id: ucsbDiningCommonsMenuItem.id,
@@ -36,14 +36,14 @@ export default function UCSBDiningCommonsMenutItemEditPage({storybook=false}) {
   });
 
   const onSuccess = (ucsbDiningCommonsMenuItem) => {
-    toast(`UCSBDiningCommonsMenutItem Updated - id: ${ucsbDiningCommonsMenuItem.id} name: ${ucsbDiningCommonsMenuItem.name}`);
+    toast(`UCSBDiningCommonsMenuItem Updated - id: ${ucsbDiningCommonsMenuItem.id} name: ${ucsbDiningCommonsMenuItem.name}`);
   }
 
   const mutation = useBackendMutation(
     objectToAxiosPutParams,
     { onSuccess },
     // Stryker disable next-line all : hard to set up test for caching
-    [`/api/UCSBDiningCommonsMenutItem?id=${id}`]
+    [`/api/UCSBDiningCommonsMenuItem?id=${id}`]
   );
 
   const { isSuccess } = mutation
@@ -53,7 +53,7 @@ export default function UCSBDiningCommonsMenutItemEditPage({storybook=false}) {
   }
 
   if (isSuccess && !storybook) {
-    return <Navigate to="/UCSBDiningCommonsMenutItem" />
+    return <Navigate to="/UCSBDiningCommonsMenuItem" />
   }
 
   return (
@@ -61,7 +61,7 @@ export default function UCSBDiningCommonsMenutItemEditPage({storybook=false}) {
       <div className="pt-2">
         <h1>Edit UCSBDiningCommonsMenuItem</h1>
         {
-          ucsbDiningCommonsMenuItem && <UCSBDiningCommonsMenutItemForm initialContents={ucsbDiningCommonsMenuItem} submitAction={onSubmit} buttonLabel="Update" />
+          ucsbDiningCommonsMenuItem && <UCSBDiningCommonsMenuItemForm initialContents={ucsbDiningCommonsMenuItem} submitAction={onSubmit} buttonLabel="Update" />
         }
       </div>
     </BasicLayout>

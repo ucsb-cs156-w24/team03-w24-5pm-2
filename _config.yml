@@ -1,0 +1,26 @@
+
+title: Documentation
+description: >- # this means to ignore newlines until "baseurl:"
+  When reviewing a PR for this repo, you can see what the documentation,
+  e.g. the storybook, will look like when published for the branches
+  named above.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+
+collections:
+  branches:
+    output: true
+    permalink: /branches/:path/
+
+repo_name: "TBD"
+
+
+repo: ucsb-cs156-w24/team03-w24-5pm-2
+owner: ucsb-cs156-w24
+repo_name: team03-w24-5pm-2
+pull_requests: [{"author":{"id":"U_kgDOByAtbA","is_bot":false,"login":"livitsimple","name":""},"headRefName":"Olivia-UCSBOrganization-TableComponent","number":96,"title":"Table Component for UCSBOrganization plus tests","url":"https://github.com/ucsb-cs156-w24/team03-w24-5pm-2/pull/96"},{"author":{"id":"U_kgDOB2-vOA","is_bot":false,"login":"jonathan-herring","name":"Jonathan Herring"},"headRefName":"JH-MenuItem-Edit-Page","number":95,"title":"Jh menu item edit page","url":"https://github.com/ucsb-cs156-w24/team03-w24-5pm-2/pull/95"},{"author":{"id":"U_kgDOB2-vOA","is_bot":false,"login":"jonathan-herring","name":"Jonathan Herring"},"headRefName":"JH-MenuItem-Index-Page","number":94,"title":"Jh menu item index page","url":"https://github.com/ucsb-cs156-w24/team03-w24-5pm-2/pull/94"},{"author":{"id":"U_kgDOB2-vOA","is_bot":false,"login":"jonathan-herring","name":"Jonathan Herring"},"headRefName":"JH-MenuItem-Create-Page","number":93,"title":"Jh menu item create page","url":"https://github.com/ucsb-cs156-w24/team03-w24-5pm-2/pull/93"},{"author":{"id":"U_kgDOByAtbA","is_bot":false,"login":"livitsimple","name":""},"headRefName":"Olivia-UCSBOrganization-FormComponent","number":92,"title":"Form Component for UCSB Organization plus tests","url":"https://github.com/ucsb-cs156-w24/team03-w24-5pm-2/pull/92"},{"author":{"id":"U_kgDOB2-vOA","is_bot":false,"login":"jonathan-herring","name":"Jonathan Herring"},"headRefName":"JH-MenuItem-Placeholders","number":86,"title":"Jh menu item placeholders","url":"https://github.com/ucsb-cs156-w24/team03-w24-5pm-2/pull/86"}]

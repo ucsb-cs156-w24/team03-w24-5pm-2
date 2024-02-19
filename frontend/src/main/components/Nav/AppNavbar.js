@@ -50,6 +50,15 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                   </NavDropdown>
                 )
               }
+	      
+              {
+                hasRole(currentUser, "ROLE_USER") && (
+                  <>
+                    <Nav.Link as={Link} to="/ucsborganizations">UCSB Organizations</Nav.Link>
+                  </>
+                )
+              }
+
             </Nav>
             {
               currentUser && currentUser.loggedIn && (
@@ -63,6 +72,7 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                 </>
               )
             }
+
             <Nav className="ml-auto">
               {
                 currentUser && currentUser.loggedIn ? (

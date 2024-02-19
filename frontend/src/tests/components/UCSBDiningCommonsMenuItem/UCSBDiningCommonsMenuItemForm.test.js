@@ -37,24 +37,6 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
         expect(screen.getByTestId(/UCSBDiningCommonsMenuItemForm-id/)).toHaveValue("1");
     });
 
-
-    test("Correct Error messsages on bad input", async () => {
-
-        render(
-            <Router  >
-                <UCSBDiningCommonsMenuItemForm />
-            </Router>
-        );
-        await screen.findByTestId("UCSBDiningCommonsMenuItemForm-name");
-        const nameField = screen.getByTestId("UCSBDiningCommonsMenuItemForm-name");
-        const stationField = screen.getByTestId("UCSBDiningCommonsMenuItemForm-station");
-        const submitButton = screen.getByTestId("UCSBDiningCommonsMenuItemForm-submit");
-
-        fireEvent.change(nameField, { target: { value: 'bad-input' } });
-        fireEvent.change(stationField, { target: { value: 'bad-input' } });
-        fireEvent.click(submitButton);
-    });
-
     test("Correct Error messsages on missing input", async () => {
 
         render(

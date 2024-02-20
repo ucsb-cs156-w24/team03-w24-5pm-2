@@ -82,7 +82,7 @@ describe("RecommendationRequestCreatePage tests", () => {
         const explanation = screen.getByTestId("RecommendationRequestForm-explanation");
         const dateRequested = screen.getByTestId("RecommendationRequestForm-dateRequested");
         const dateNeeded = screen.getByTestId("RecommendationRequestForm-dateNeeded");
-        const done = screen.getByTestId("RecommendationRequestForm-done")
+        const done = screen.getByTestId("RecommendationRequestForm-done");
         const submitButton = screen.getByTestId("RecommendationRequestForm-submit");
 
         fireEvent.change(requesterEmail, { target: { value: 'student@ucsb.edu' } });

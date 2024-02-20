@@ -128,7 +128,7 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
                 <Col>
                     <Form.Group className="mb-3" >
                         <Form.Label htmlFor="done">done</Form.Label>
-                        <Form.Control
+                        <Form.Check
                             data-testid="RecommendationRequestForm-done"
                             id="done"
                             type="switch"

@@ -62,10 +62,10 @@ if (hasRole(currentUser, "ROLE_ADMIN")) {
         columns.push(ButtonColumn("Delete", "danger", deleteCallback, "RecommendationRequestTable"));
     } 
 
-const updatedRecommendationRequests = RecommendationRequests.map(obj => ( {
-    ...obj,
-    "done" : String(obj["done"])
-}));
+    const updatedRecommendationRequests = (RecommendationRequests || []).map(obj => ({
+        ...obj,
+        "done": String(obj["done"])
+    }));
 
     return <OurTable
         data={updatedRecommendationRequests}

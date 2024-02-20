@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
@@ -45,6 +46,7 @@ ThreeItemsOrdinaryUser.parameters = {
 }
 
 export const ThreeItemsAdminUser = Template.bind({});
+
 ThreeItemsAdminUser.parameters = {
     msw: [
         rest.get('/api/currentUser', (_req, res, ctx) => {

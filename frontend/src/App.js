@@ -16,7 +16,7 @@ import PlaceholderCreatePage from "main/pages/Placeholder/PlaceholderCreatePage"
 import PlaceholderEditPage from "main/pages/Placeholder/PlaceholderEditPage";
 
 import RecommendationRequestIndexPage from "main/pages/RecommendationRequest/RecommendationRequestIndexPage";
-import RecommendationRequestCreatePage from "main/pages/RecommendationRequest/RecommendationRequestreatePage";
+import RecommendationRequestCreatePage from "main/pages/RecommendationRequest/RecommendationRequestCreatePage";
 import RecommendationRequestEditPage from "main/pages/RecommendationRequest/RecommendationRequestEditPage";
 
 

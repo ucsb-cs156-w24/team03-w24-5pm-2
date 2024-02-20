@@ -61,7 +61,6 @@ if (hasRole(currentUser, "ROLE_ADMIN")) {
         columns.push(ButtonColumn("Edit", "primary", editCallback, "RecommendationRequestTable"));
         columns.push(ButtonColumn("Delete", "danger", deleteCallback, "RecommendationRequestTable"));
     } 
-
     return <OurTable
         data={RecommendationRequests}
         columns={columns}

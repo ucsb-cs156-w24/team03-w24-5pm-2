@@ -36,16 +36,16 @@ describe("UCSBOrganizationUtils", () => {
 
         test("It returns the correct params", () => {
             // arrange
-            const cell = { row: { values: { orgCode: "ZPR" } } };
+            const cell = { row: { values: { orgCode: "SKY" } } };
 
             // act
             const result = cellToAxiosParamsDelete(cell);
 
             // assert
             expect(result).toEqual({
-                url: "/api/ucsborganization",
+                url: "/api/ucsborganizations",
                 method: "DELETE",
-                params: { orgCode: "ZPR" }
+                params: { orgCode: "SKY" }
             });
         });
 

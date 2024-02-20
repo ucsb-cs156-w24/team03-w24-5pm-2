@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for pages/UCSBOrganization/UCSBOrganizationCreatePage.js</title>
+    <title>Code coverage report for pages/RecommendationRequest/RecommendationRequestCreatePage.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">pages/UCSBOrganization</a> UCSBOrganizationCreatePage.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">pages/RecommendationRequest</a> RecommendationRequestCreatePage.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -133,6 +133,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -163,36 +165,36 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import UCSBOrganizationForm from "main/components/UCSBOrganization/UCSBOrganizationForm";
+import RecommendationRequestForm from "main/components/RecommendationRequest/RecommendationRequestForm";
 import { Navigate } from 'react-router-dom'
 import { useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
 &nbsp;
-export default function UCSBOrganizationCreatePage({storybook=false}) {
+export default function RecommendationRequestCreatePage({storybook=false}) {
 &nbsp;
-  const objectToAxiosParams = (organization) =&gt; ({
-    url: "/api/ucsborganizations/post",
+  const objectToAxiosParams = (recommendationRequest) =&gt; ({
+    url: "/api/RecommendationRequest/post",
     method: "POST",
     params: {
-      orgCode: organization.orgCode,
-      orgTranslationShort: organization.orgTranslationShort,
-      orgTranslation: organization.orgTranslation,
-      inactive: organization.inactive
+     requesterEmail: recommendationRequest.requesterEmail,
+     professorEmail: recommendationRequest.professorEmail,
+     explanation: recommendationRequest.explanation,
+     dateRequested: recommendationRequest.dateRequested,
+     dateNeeded: recommendationRequest.dateNeeded,
+     done: recommendationRequest.done
     }
   });
 &nbsp;
-  const onSuccess = (organization) =&gt; {
-    toast(`New organization Created - orgCode: ${organization.orgCode} orgTranslationShort: ${organization.orgTranslationShort} orgTranslation: ${organization.orgTranslation} inactive: ${organization.inactive}`);
+  const onSuccess = (recommendationRequest) =&gt; {
+    toast(`New recommendationRequest Created - id: ${recommendationRequest.id} requesterEmail: ${recommendationRequest.requesterEmail}`);
   }
 &nbsp;
   const mutation = useBackendMutation(
     objectToAxiosParams,
      { onSuccess }, 
      // Stryker disable next-line all : hard to set up test for caching
-     ["/api/ucsborganizations/all"]
+     ["/api/RecommendationRequest/all"] // mutation makes this key stale so that pages relying on it reload
      );
 &nbsp;
   const { isSuccess } = mutation
@@ -202,16 +204,14 @@ export default function UCSBOrganizationCreatePage({storybook=false}) {
   }
 &nbsp;
   if (isSuccess &amp;&amp; !storybook) {
-    return &lt;Navigate to="/ucsborganizations" /&gt;
+    return &lt;Navigate to="/RecommendationRequest" /&gt;
   }
 &nbsp;
   return (
     &lt;BasicLayout&gt;
       &lt;div className="pt-2"&gt;
-        &lt;h1&gt;Create New Organization&lt;/h1&gt;
-&nbsp;
-        &lt;UCSBOrganizationForm submitAction={onSubmit} /&gt;
-&nbsp;
+        &lt;h1&gt;Create New RecommendationRequest&lt;/h1&gt;
+        &lt;RecommendationRequestForm submitAction={onSubmit} /&gt;
       &lt;/div&gt;
     &lt;/BasicLayout&gt;
   )

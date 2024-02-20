@@ -40,6 +40,3 @@ describe("UCSBOrganizationEditPage tests", () => {
     });
 
 });
-
-
-

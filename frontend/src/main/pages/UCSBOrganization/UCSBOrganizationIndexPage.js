@@ -18,18 +18,17 @@ export default function UCSBOrganizationIndexPage() {
                 href="/ucsborganizations/create"
                 style={{ float: "right" }}
             >
-                Create Organization 
+                Create Organization
             </Button>
         )
-    } 
+    }
   }
-  
+
   const { data: organizations, error: _error, status: _status } =
     useBackend(
       // Stryker disable next-line all : don't test internal caching of React Query
       ["/api/ucsborganizations/all"],
       { method: "GET", url: "/api/ucsborganizations/all" },
-      // Stryker disable next-line all : don't test default value of empty list
       []
     );
 

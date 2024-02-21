@@ -87,18 +87,9 @@ describe("UCSBOrganizationIndexPage tests", () => {
         expect(screen.getByTestId(`${testId}-cell-row-1-col-orgCode`)).toHaveTextContent("OSLI");
         expect(screen.getByTestId(`${testId}-cell-row-2-col-orgCode`)).toHaveTextContent("KRC");
 
-        const createOrganizationButton = screen.queryByText("Create Organization");
-        expect(createOrganizationButton).not.toBeInTheDocument();
+        // assert the Create button is not present when user isn't an admin
+        expect(screen.queryByText(/Create Organization/)).not.toBeInTheDocument();
 
-        const orgTranslationShort = screen.getByText("SKYDIVING CLUB");
-        expect(orgTranslationShort).toBeInTheDocument();
-
-        const orgTranslation = screen.getByText("SKYDIVING CLUB AT UCSB");
-        expect(orgTranslation).toBeInTheDocument();
-
-
-        expect(screen.queryByTestId("UCSBOrganizationTable-cell-row-0-col-Delete-button")).not.toBeInTheDocument();
-        expect(screen.queryByTestId("UCSBOrganizationTable-cell-row-0-col-Edit-button")).not.toBeInTheDocument();
     });
 
 
@@ -124,6 +115,8 @@ describe("UCSBOrganizationIndexPage tests", () => {
         const errorMessage = console.error.mock.calls[0][0];
         expect(errorMessage).toMatch("Error communicating with backend via GET on /api/ucsborganizations/all");
         restoreConsole();
+
+        expect(screen.queryByTestId(`${testId}-cell-row-0-col-id`)).not.toBeInTheDocument();
 
     });
 

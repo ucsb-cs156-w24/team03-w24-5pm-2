@@ -36,6 +36,12 @@ import HelpRequestIndexPage from "main/pages/HelpRequest/HelpRequestIndexPage";
 import HelpRequestCreatePage from "main/pages/HelpRequest/HelpRequestCreatePage";
 import HelpRequestEditPage from "main/pages/HelpRequest/HelpRequestEditPage";
 
+
+import UCSBOrganizationIndexPage from "main/pages/UCSBOrganization/UCSBOrganizationIndexPage";
+import UCSBOrganizationCreatePage from "main/pages/UCSBOrganization/UCSBOrganizationCreatePage";
+import UCSBOrganizationEditPage from "main/pages/UCSBOrganization/UCSBOrganizationEditPage";
+
+
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -183,6 +189,22 @@ function App() {
 
               <Route exact path="/helprequest/edit/:id" element={<HelpRequestEditPage />} />
               <Route exact path="/helprequest/create" element={<HelpRequestCreatePage />} />
+            </>
+          )
+        }
+
+        {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/ucsborganizations" element={<UCSBOrganizationIndexPage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_ADMIN") && (
+            <>
+              <Route exact path="/ucsborganizations/edit/:orgCode" element={<UCSBOrganizationEditPage />} />
+              <Route exact path="/ucsborganizations/create" element={<UCSBOrganizationCreatePage />} />
             </>
           )
         }

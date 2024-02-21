@@ -29,6 +29,7 @@ export default function UCSBOrganizationIndexPage() {
       // Stryker disable next-line all : don't test internal caching of React Query
       ["/api/ucsborganizations/all"],
       { method: "GET", url: "/api/ucsborganizations/all" },
+      // Stryker disable next-line all : don't test default value of empty list
       []
     );
 

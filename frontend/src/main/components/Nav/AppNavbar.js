@@ -50,15 +50,6 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                   </NavDropdown>
                 )
               }
-	      
-              {
-                hasRole(currentUser, "ROLE_USER") && (
-                  <>
-                    <Nav.Link as={Link} to="/ucsborganizations">UCSB Organizations</Nav.Link>
-                  </>
-                )
-              }
-
             </Nav>
             {
               currentUser && currentUser.loggedIn && (
@@ -68,12 +59,13 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                   <Nav.Link as={Link} to="/menuitemreview">MenuItemReview</Nav.Link>
                   <Nav.Link as={Link} to="/placeholder">Placeholder</Nav.Link>
 
-                  <Nav.Link as={Link} to="/recommendationrequest">RecommendationRequest</Nav.Link>
-
                   <Nav.Link as={Link} to="/diningcommonsmenuitem">UCSBDiningCommonsMenuItem</Nav.Link>
                   <Nav.Link as={Link} to="/helprequest">HelpRequest</Nav.Link>
                   <Nav.Link as={Link} to="/articles">Articles</Nav.Link>
+		              <Nav.Link as={Link} to="/ucsborganizations">UCSB Organizations</Nav.Link>
+                  <Nav.Link as={Link} to="/recommendationrequest">RecommendationRequest</Nav.Link>
 
+    
 
                 </>
               )

@@ -24,7 +24,7 @@ export default function RecommendationRequestIndexPage() {
     } 
   }
   
-  const { data: recommendationRequests, error: _error, status: _status } =
+  const { data: RecommendationRequests, error: _error, status: _status } =
     useBackend(
       // Stryker disable next-line all : don't test internal caching of React Query
       ["/api/RecommendationRequest/all"],
@@ -37,7 +37,7 @@ export default function RecommendationRequestIndexPage() {
       <div className="pt-2">
         {createButton()}
         <h1>RecommendationRequests</h1>
-        <RecommendationRequestTable recommendationRequests={recommendationRequests} currentUser={currentUser} />
+        <RecommendationRequestTable RecommendationRequests={RecommendationRequests} currentUser={currentUser} />
       </div>
     </BasicLayout>
   )

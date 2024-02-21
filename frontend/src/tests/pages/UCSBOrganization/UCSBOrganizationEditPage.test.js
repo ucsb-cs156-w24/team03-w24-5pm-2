@@ -116,7 +116,7 @@ describe("UCSBOrganizationEditPage tests", () => {
             const orgTranslationField = screen.getByTestId("UCSBOrganizationForm-orgTranslation");
             const inactiveField = screen.getByTestId("UCSBOrganizationForm-inactive");
             const submitButton = screen.getByTestId("UCSBOrganizationForm-submit");
-            
+
             expect(orgCodeField).toBeInTheDocument();
             expect(orgCodeField).toHaveValue("SKY");
             expect(orgTranslationShortField).toBeInTheDocument();
@@ -125,8 +125,8 @@ describe("UCSBOrganizationEditPage tests", () => {
             expect(orgTranslationField).toHaveValue("SKYDIVING CLUB AT UCSB");
             expect(inactiveField).toBeInTheDocument();
             expect(inactiveField).toHaveValue("false");
-            
-	    expect(submitButton).toHaveTextContent("Update");
+
+            expect(submitButton).toHaveTextContent("Update");
 
             fireEvent.change(orgCodeField, { target: { value: "SKYD" } });
             fireEvent.change(orgTranslationShortField, { target: { value: "CLUB SKYDIVING" } });
@@ -136,7 +136,7 @@ describe("UCSBOrganizationEditPage tests", () => {
 
             await waitFor(() => expect(mockToast).toBeCalled());
             expect(mockToast).toBeCalledWith("UCSBOrganization Updated - orgCode: SKYD orgTranslationShort: CLUB SKYDIVING orgTranslation: CLUB SKYDIVING AT UCSB inactive: false");
-            
+
             expect(mockNavigate).toBeCalledWith({ "to": "/ucsborganizations" });
 
             expect(axiosMock.history.put.length).toBe(1); // times called
@@ -148,7 +148,7 @@ describe("UCSBOrganizationEditPage tests", () => {
                 inactive: "false"
             })); // posted object
 
-            
+
         });
 
         test("Changes when you click Update", async () => {
@@ -192,8 +192,7 @@ describe("UCSBOrganizationEditPage tests", () => {
 
         });
 
-       
-    });
 
+    });
 
 
